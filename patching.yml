@@ -33,6 +33,8 @@
      - name: Openssl PKG Version
         ansible.builtin.shell: /sbin/ifconfig -a|grep -i bcast > {{patchdir}}/$date/ifconfigBP
 
+     - name: UUIDD Status
+        ansible.builtin.shell: /etc/init.d/uuidd status" > {{patchdir}}/{{ansible.date}}/uuiddBP
      
 
 
