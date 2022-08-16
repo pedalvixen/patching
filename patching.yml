@@ -19,7 +19,7 @@
         state: directory
         mode: '0755'
      - name: Execute the command in remote shell; stdout goes to the specified file on the remote
-       ansible.builtin.shell: /usr/sbin/dmidecode -s system-product-name > {{patchdir}}/$date/system-product-nameBP
+       ansible.builtin.shell: /usr/sbin/dmidecode -s system-product-name > {{patchdir}}/{{ansible.date}}.system-product-nameBP
 
      - name: Execute the command in remote shell; stdout goes to the specified file on the remote
        ansible.builtin.shell: lsb_release -dr > {{patchdir}}/$date/lsbreleaseBP
@@ -30,11 +30,11 @@
      - name: Openssl PKG Version
        ansible.builtin.shell: rpm -qa|grep -i openssl > {{patchdir}}/$date/opensslBP
 
-     - name: Openssl PKG Version
-       ansible.builtin.shell: ifconfig -a|grep -i bcast > {{patchdir}}/$date/ifconfigBP
+     - name: Capture Network Configuration
+       ansible.builtin.shell: /usr/sbin/ifconfig -a|grep -i bcast > {{patchdir}}/$date.ifconfigBP
 
      - name: UUIDD Status
-       ansible.builtin.shell: /etc/init.d/uuidd status > {{patchdir}}/{{ansible.date}}/uuiddBP
+       ansible.builtin.shell: /etc/init.d/uuidd status > {{patchdir}}/{{ansible.date}}.uuiddBP
      
 
 
