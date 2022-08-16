@@ -40,8 +40,21 @@
          name: '*'
          state: latest
 
+
+
 #     - name: UUIDD Status
 #       ansible.builtin.shell: /etc/init.d/uuidd status > {{patchdir}}/uuiddBP
+
+
+# Example for backup
+
+#      - name: network backup
+#        hosts: all
+#        gather_facts: false
+#        tasks:
+#          - name: multi platform backup
+#            include_role:
+#              name: network.toolkit.backup
      
 
 
