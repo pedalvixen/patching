@@ -19,22 +19,22 @@
         state: directory
         mode: '0755'
      - name: Execute the command in remote shell; stdout goes to the specified file on the remote
-       ansible.builtin.shell: /usr/sbin/dmidecode -s system-product-name > {{patchdir}}/{{ansible.date}}.system-product-nameBP
+       ansible.builtin.shell: /usr/sbin/dmidecode -s system-product-name > {{patchdir}}/system-product-nameBP
 
      - name: Execute the command in remote shell; stdout goes to the specified file on the remote
-       ansible.builtin.shell: lsb_release -dr > {{patchdir}}/$date/lsbreleaseBP
+       ansible.builtin.shell: lsb_release -dr > {{patchdir}}/lsbreleaseBP
 
      - name: Check if GLIBC Exists
-       ansible.builtin.shell: rpm -q glibc > {{patchdir}}/$date/system-product-nameBP
+       ansible.builtin.shell: rpm -q glibc > {{patchdir}}/system-product-nameBP
 
      - name: Openssl PKG Version
-       ansible.builtin.shell: rpm -qa|grep -i openssl > {{patchdir}}/$date/opensslBP
+       ansible.builtin.shell: rpm -qa|grep -i openssl > {{patchdir}}/opensslBP
 
      - name: Capture Network Configuration
-       ansible.builtin.shell: /usr/sbin/ifconfig -a|grep -i bcast > {{patchdir}}/$date.ifconfigBP
+       ansible.builtin.shell: /usr/sbin/ifconfig -a|grep -i bcast > {{patchdir}}/ifconfigBP
 
      - name: UUIDD Status
-       ansible.builtin.shell: /etc/init.d/uuidd status > {{patchdir}}/{{ansible.date}}.uuiddBP
+       ansible.builtin.shell: /etc/init.d/uuidd status > {{patchdir}}/uuiddBP
      
 
 
