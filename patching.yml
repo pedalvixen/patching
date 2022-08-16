@@ -17,7 +17,7 @@
      - name: Ansible Facts output
        ansible.builtin.copy:
          content: "{{ansible_facts}}"
-         dest: "{{patchdir}}/{{ansible_fqdn}}"
+         dest: "{{patchdir}}"
        delegate_to: localhost
          
      - name: Execute the command in remote shell; stdout goes to the specified file on the remote
