@@ -17,16 +17,16 @@
        ansible.builtin.shell: /usr/sbin/dmidecode -s system-product-name > {{patchdir}}/{{ansible_date_time.date}}.system-product-nameBP
 
      - name: Execute the command in remote shell; stdout goes to the specified file on the remote
-       ansible.builtin.shell: lsb_release -dr > {{patchdir}}/lsbreleaseBP
+       ansible.builtin.shell: lsb_release -dr > {{patchdir}}/{{ansible_date_time.date}}.lsbreleaseBP
 
      - name: Check if GLIBC Exists
-       ansible.builtin.shell: rpm -q glibc > {{patchdir}}/system-product-nameBP
+       ansible.builtin.shell: rpm -q glibc > {{patchdir}}/{{ansible_date_time.date}}.system-product-nameBP
 
      - name: Openssl PKG Version
-       ansible.builtin.shell: rpm -qa|grep -i openssl > {{patchdir}}/opensslBP
+       ansible.builtin.shell: rpm -qa|grep -i openssl > {{patchdir}}/{{ansible_date_time.date}}.opensslBP
 
      - name: Capture Network Configuration
-       ansible.builtin.shell: /usr/sbin/ifconfig -a > {{patchdir}}/ifconfigBP
+       ansible.builtin.shell: /usr/sbin/ifconfig -a > {{patchdir}}/{{ansible_date_time.date}}.ifconfigBP
 
      - name: Install current patches
        ansible.builtin.yum:
