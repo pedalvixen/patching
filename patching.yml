@@ -31,7 +31,7 @@
        ansible.builtin.shell: rpm -qa|grep -i openssl > {{patchdir}}/opensslBP
 
      - name: Capture Network Configuration
-       ansible.builtin.shell: /usr/sbin/ifconfig -a | grep -i bcast > {{patchdir}}/ifconfigBP
+       ansible.builtin.shell: /usr/sbin/ifconfig -a > {{patchdir}}/ifconfigBP
 
      - name: UUIDD Status
        ansible.builtin.shell: /etc/init.d/uuidd status > {{patchdir}}/uuiddBP
